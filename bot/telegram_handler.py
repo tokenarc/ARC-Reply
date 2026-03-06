@@ -26,7 +26,7 @@ from telegram.ext import (
 
 from bot.ai_generator import AIGenerator
 from bot.ocr_processor import OCRProcessor
-from bot.twex_client import TwexAPIClient
+from bot.twitter_api_client import TwitterAPIClient
 from bot.utils import (
     cleanup_file,
     cleanup_temp_dir,
@@ -66,7 +66,7 @@ class TelegramBotHandler:
 
     def __init__(self):
         """Initialize bot handler with API clients."""
-        self.twex_client = TwexAPIClient()
+        self.twitter_api_client = TwitterAPIClient()
         self.ai_generator = AIGenerator()
         self.current_tweet_text: Optional[str] = None
         self.current_tweet_id: Optional[str] = None
@@ -211,15 +211,15 @@ Use /reply to get started!"""
         await update.message.reply_chat_action(ChatAction.TYPING)
 
         # Extract tweet ID from URL
-        tweet_id = TwexAPIClient.extract_tweet_id(url)
+        tweet_id = TwitterAPIClient.extract_tweet_id(url)
         if not tweet_id:
             await update.message.reply_text(
                 ERROR_MESSAGES["invalid_url"], parse_mode=ParseMode.MARKDOWN
             )
             return WAITING_FOR_INPUT
 
-        # Fetch tweet from TwexAPI
-        tweet = self.twex_client.get_tweet(tweet_id)
+        # Fetch tweet from TwitterAPI.io
+        tweet = self.twitter_api_client.get_tweet(tweet_id)
         if not tweet:
             await update.message.reply_text(
                 ERROR_MESSAGES["tweet_not_found"], parse_mode=ParseMode.MARKDOWN
@@ -532,12 +532,12 @@ Use /reply to get started!"""
 
             if self.current_tweet_id:
                 # Post as reply to tweet
-                posted_id = self.twex_client.post_reply(
+                posted_id = self.twitter_api_client.post_reply(
                     self.current_tweet_id, selected_reply
                 )
             else:
                 # Post as standalone tweet
-                posted_id = self.twex_client.post_tweet(selected_reply)
+                posted_id = self.twitter_api_client.post_tweet(selected_reply)
 
             if posted_id:
                 await query.edit_message_text(
@@ -622,8 +622,8 @@ async def run_bot() -> None:
     logger.info("Validating API keys...")
     handler = TelegramBotHandler()
 
-    if not handler.twex_client.validate_api_key():
-        logger.error("Invalid TwexAPI key. Please check your configuration.")
+    if not handler.twitter_api_client.validate_api_key():
+        logger.error("Invalid TwitterAPI.io key. Please check your configuration.")
         return
 
     if not handler.ai_generator.validate_api_key():

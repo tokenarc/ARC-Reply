@@ -23,9 +23,10 @@ class Settings:
         int(os.getenv("BOT_ADMIN_ID")) if os.getenv("BOT_ADMIN_ID") else None
     )
 
-    # TwexAPI Configuration
-    TWEXAPI_KEY: str = os.getenv("TWEXAPI_KEY", "")
-    TWEXAPI_BASE_URL: str = "https://api.twexapi.io"
+    # TwitterAPI.io Configuration
+    TWITTER_API_KEY: str = os.getenv("TWITTER_API_KEY", "")
+    TWITTER_API_BASE_URL: str = "https://api.twitter-api.io"
+    TWITTER_API_BEARER_TOKEN: str = os.getenv("TWITTER_API_BEARER_TOKEN", "")
 
     # OpenAI Configuration
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
@@ -44,7 +45,7 @@ class Settings:
         """Validate that all required settings are configured."""
         required_settings = [
             ("TELEGRAM_BOT_TOKEN", cls.TELEGRAM_BOT_TOKEN),
-            ("TWEXAPI_KEY", cls.TWEXAPI_KEY),
+            ("TWITTER_API_KEY", cls.TWITTER_API_KEY),
             ("OPENAI_API_KEY", cls.OPENAI_API_KEY),
         ]
 

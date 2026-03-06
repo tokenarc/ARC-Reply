@@ -60,9 +60,9 @@ x-reply-bot/
 ## Technology Stack 🛠️
 
 | Component | Technology |
-|-----------|-----------|
+|-----------|----------|
 | **Bot Framework** | python-telegram-bot 21.0.1 |
-| **X API** | TwexAPI (REST API wrapper) |
+| **X API** | TwitterAPI.io (REST API wrapper) |
 | **AI Model** | OpenAI ChatGPT-4o |
 | **OCR Engine** | Tesseract OCR via pytesseract |
 | **Image Processing** | Pillow (PIL) |
@@ -135,11 +135,11 @@ LOG_LEVEL=INFO
 2. Send `/newbot` and follow the instructions
 3. Copy the provided bot token
 
-### TwexAPI Key
-1. Visit [TwexAPI Dashboard](https://dashboard.twexapi.com)
-2. Sign up for a free account
-3. Generate API key from dashboard
-4. Copy the Bearer token
+### TwitterAPI.io Key
+1. Visit [TwitterAPI.io](https://api.twitter-api.io)
+2. Sign up for an account
+3. Generate API key from your dashboard
+4. Copy the API key or Bearer token
 
 ### OpenAI API Key
 1. Visit [OpenAI Platform](https://platform.openai.com)
@@ -183,12 +183,11 @@ The bot will validate all API keys and start listening for commands.
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `TELEGRAM_BOT_TOKEN` | ✅ | Telegram Bot API token |
-| `TWEXAPI_KEY` | ✅ | TwexAPI Bearer token |
+| `TWITTER_API_KEY` | ✅ | TwitterAPI.io API key |
 | `OPENAI_API_KEY` | ✅ | OpenAI API key |
-| `OPENAI_MODEL` | ❌ | Model name (default: gpt-4o) |
-| `TESSERACT_PATH` | ❌ | Path to Tesseract binary |
-| `BOT_ADMIN_ID` | ❌ | Admin user ID for special features |
-| `LOG_LEVEL` | ❌ | Logging level (default: INFO) |
+| `OPENAI_MODEL` | ❌ | Model name (default:| `TWITTER_API_BEARER_TOKEN` | ❌ | TwitterAPI.io Bearer token (alternative to API key) |
+| `TESSERACT_PATH` | ❌ | Path to Tesseract binary if not in system PATH |
+| `BOT_ADMIN_ID` | ❌ | Admin user ID for special features |EL` | ❌ | Logging level (default: INFO) |
 
 ### Reply Styles Details
 
@@ -204,14 +203,14 @@ The bot will validate all API keys and start listening for commands.
 
 ## API Integration Details 🔌
 
-### TwexAPI Integration
-- **Endpoint**: `https://api.twexapi.io`
-- **Authentication**: Bearer token in Authorization header
+### TwitterAPI.io Integration
+- **Endpoint**: `https://api.twitter-api.io`
+- **Authentication**: Bearer token or API key in Authorization header
 - **Key Operations**:
-  - `POST /twitter/tweets/lookup` - Fetch tweet details
-  - `POST /twitter/tweets/create` - Post tweets and replies
-- **Cost**: $0.01 per API call
-- **Rate Limit**: 20+ requests/second
+  - `GET /tweets/{id}` - Fetch tweet details
+  - `POST /tweets` - Post tweets and replies
+- **Documentation**: [TwitterAPI.io Docs](https://api.twitter-api.io)
+- **Rate Limit**: Check your account tier for limits
 
 ### OpenAI Integration
 - **Model**: GPT-4o (latest multimodal model)
@@ -242,7 +241,8 @@ brew install tesseract
 - Verify API keys in `.env` file
 - Ensure no extra whitespace in keys
 - Check that API keys haven't expired
-- Confirm API keys have necessary permissions
+- Confirm TwitterAPI.io account is active
+- Use either TWITTER_API_KEY or TWITTER_API_BEARER_TOKEN (not both)
 
 ### OCR Not Extracting Text
 - Ensure image is clear and readable
@@ -274,7 +274,7 @@ LOG_LEVEL=DEBUG
 
 ## Limitations ⚠️
 
-- Twitter/X API access requires valid TwexAPI key
+- Twitter/X API access requires valid TwitterAPI.io key
 - OpenAI API has usage limits based on subscription
 - Tesseract OCR works best with clear, readable text
 - Replies are limited to 280 characters (Twitter/X limit)

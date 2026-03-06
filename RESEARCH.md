@@ -1,20 +1,19 @@
 # X Reply Bot - Research & Architecture
 
-## TwexAPI Overview
+## TwitterAPI.io Overview
 
-**TwexAPI** is a cost-effective Twitter/X API wrapper that provides:
-- **Pricing**: $0.01 per API call (90% cheaper than official API)
-- **Rate Limits**: 20+ requests/second (vs 300/15min for official API)
+**TwitterAPI.io** is a Twitter/X API wrapper that provides:
 - **Endpoints**:
-  - `POST /twitter/tweets/lookup` - Fetch tweet details by ID
-  - `POST /twitter/tweets/create` - Post tweets and replies
-  - `GET /twitter/tweets/lookup` - Batch get tweets by ID
+  - `GET /tweets/{id}` - Fetch tweet details by ID
+  - `POST /tweets` - Post tweets and replies
+  - Support for expansions and field parameters
 
 **Key Features**:
-- Simple Bearer token authentication
+- Bearer token or API key authentication
 - No complex OAuth flows
-- Support for media, scheduling, and replies
+- Support for media and replies
 - Real-time data access
+- Flexible authentication options
 
 ## Architecture Plan
 
@@ -24,7 +23,7 @@ x-reply-bot/
 ├── bot/                          # Core bot logic
 │   ├── main.py                   # Entry point
 │   ├── telegram_handler.py        # Telegram Bot API integration
-│   ├── twex_client.py             # TwexAPI wrapper
+│   ├── twitter_api_client.py      # TwitterAPI.io wrapper
 │   ├── ai_generator.py            # ChatGPT-4o integration
 │   ├── ocr_processor.py           # Tesseract OCR
 │   ├── reply_styles.py            # Reply style templates
@@ -40,7 +39,7 @@ x-reply-bot/
 
 ### Technology Stack
 - **Telegram**: python-telegram-bot library
-- **X API**: TwexAPI (REST API via requests)
+- **X API**: TwitterAPI.io (REST API via requests)
 - **AI**: OpenAI ChatGPT-4o API
 - **OCR**: Tesseract OCR via pytesseract
 - **Language**: Python 3.9+
@@ -49,7 +48,7 @@ x-reply-bot/
 1. User sends `/reply` command with text, link, or image
 2. Bot processes input:
    - Text: Use directly
-   - Link: Extract tweet ID and fetch via TwexAPI
+   - Link: Extract tweet ID and fetch via TwitterAPI.io
    - Image: Run Tesseract OCR to extract text
 3. Bot prompts user for:
    - Reply style (GenZ, professional, casual, sarcastic, motivational)
@@ -58,7 +57,7 @@ x-reply-bot/
 4. Send to ChatGPT-4o with all parameters
 5. Generate multiple reply options
 6. Display options in Telegram
-7. User selects one to post back to X via TwexAPI
+7. User selects one to post back to X via TwitterAPI.io
 
 ### Key Components
 
@@ -68,7 +67,7 @@ x-reply-bot/
 - Button callbacks for style/length selection
 - Reply option selection and posting
 
-#### TwexAPI Client
+#### TwitterAPI.io Client
 - Fetch tweet by URL or ID
 - Post reply to tweet
 - Handle authentication and errors
@@ -92,7 +91,7 @@ x-reply-bot/
 
 ## Dependencies
 - `python-telegram-bot` - Telegram Bot API
-- `requests` - HTTP client for TwexAPI
+- `requests` - HTTP client for TwitterAPI.io
 - `openai` - ChatGPT-4o integration
 - `pytesseract` - OCR wrapper
 - `Pillow` - Image processing
@@ -101,7 +100,8 @@ x-reply-bot/
 
 ## Environment Variables
 - `TELEGRAM_BOT_TOKEN` - Telegram Bot API token
-- `TWEXAPI_KEY` - TwexAPI bearer token
+- `TWITTER_API_KEY` - TwitterAPI.io API key
+- `TWITTER_API_BEARER_TOKEN` - TwitterAPI.io bearer token (alternative)
 - `OPENAI_API_KEY` - OpenAI API key
 - `OPENAI_MODEL` - Model name (gpt-4o)
 - `TESSERACT_PATH` - Path to Tesseract binary (optional)
