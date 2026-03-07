@@ -1,4 +1,4 @@
-# X Reply Bot - Research & Architecture
+# ARC Reply - Research & Architecture
 
 ## TwitterAPI.io Overview
 
@@ -19,12 +19,12 @@
 
 ### Project Structure
 ```
-x-reply-bot/
+arc-reply/
 ├── bot/                          # Core bot logic
 │   ├── main.py                   # Entry point
 │   ├── telegram_handler.py        # Telegram Bot API integration
 │   ├── twitter_api_client.py      # TwitterAPI.io wrapper
-│   ├── ai_generator.py            # ChatGPT-4o integration
+│   ├── ai_generator.py            # Groq API integration
 │   ├── ocr_processor.py           # Tesseract OCR
 │   ├── reply_styles.py            # Reply style templates
 │   └── utils.py                   # Helper functions
@@ -40,7 +40,7 @@ x-reply-bot/
 ### Technology Stack
 - **Telegram**: python-telegram-bot library
 - **X API**: TwitterAPI.io (REST API via requests)
-- **AI**: OpenAI ChatGPT-4o API
+- **AI**: Groq API
 - **OCR**: Tesseract OCR via pytesseract
 - **Language**: Python 3.9+
 
@@ -54,7 +54,7 @@ x-reply-bot/
    - Reply style (GenZ, professional, casual, sarcastic, motivational)
    - Length (short, medium, long, custom word count)
    - Language (English, Urdu, Japanese, etc.)
-4. Send to ChatGPT-4o with all parameters
+4. Send to Groq API with all parameters
 5. Generate multiple reply options
 6. Display options in Telegram
 7. User selects one to post back to X via TwitterAPI.io
@@ -92,7 +92,7 @@ x-reply-bot/
 ## Dependencies
 - `python-telegram-bot` - Telegram Bot API
 - `requests` - HTTP client for TwitterAPI.io
-- `openai` - ChatGPT-4o integration
+- `groq` - Groq API integration
 - `pytesseract` - OCR wrapper
 - `Pillow` - Image processing
 - `python-dotenv` - Environment variables
@@ -102,8 +102,7 @@ x-reply-bot/
 - `TELEGRAM_BOT_TOKEN` - Telegram Bot API token
 - `TWITTER_API_KEY` - TwitterAPI.io API key
 - `TWITTER_API_BEARER_TOKEN` - TwitterAPI.io bearer token (alternative)
-- `OPENAI_API_KEY` - OpenAI API key
-- `OPENAI_MODEL` - Model name (gpt-4o)
+- `GROQ_API_KEY` - Groq API key
 - `TESSERACT_PATH` - Path to Tesseract binary (optional)
 
 ## Next Steps

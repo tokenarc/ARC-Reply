@@ -1,6 +1,6 @@
-# X Reply Bot 🤖
+# ARC Reply
 
-A powerful Telegram bot that generates customizable, AI-powered replies for X (Twitter) posts. Supports multiple reply styles, languages, and input methods (text, links, or screenshots).
+A powerful Telegram bot that generates customizable, AI-powered replies for X (Twitter) posts. Supports multiple reply styles, languages, and input methods (text, links, or screenshots).).
 
 ## Features ✨
 
@@ -28,7 +28,7 @@ A powerful Telegram bot that generates customizable, AI-powered replies for X (T
   - German, Chinese, Hindi, Portuguese, Russian
 
 ### AI-Powered Generation
-- Uses **OpenAI ChatGPT-4o** for intelligent reply generation
+- Uses **Groq API** for intelligent reply generation
 - Generates multiple reply options (default: 3 variations)
 - Ensures replies fit Twitter's 280-character limit
 - Context-aware responses based on original tweet
@@ -41,12 +41,12 @@ A powerful Telegram bot that generates customizable, AI-powered replies for X (T
 ## Architecture 🏗️
 
 ```
-x-reply-bot/
+arc-reply/
 ├── bot/                          # Core bot logic
 │   ├── main.py                   # Entry point
 │   ├── telegram_handler.py        # Telegram Bot API integration
-│   ├── twex_client.py             # TwexAPI wrapper
-│   ├── ai_generator.py            # ChatGPT-4o integration
+│   ├── twitter_api_client.py      # TwitterAPI.io wrapper
+│   ├── ai_generator.py            # Groq API integration
 │   ├── ocr_processor.py           # Tesseract OCR
 │   └── utils.py                   # Helper functions
 ├── config/
@@ -63,7 +63,7 @@ x-reply-bot/
 |-----------|----------|
 | **Bot Framework** | python-telegram-bot 21.0.1 |
 | **X API** | TwitterAPI.io (REST API wrapper) |
-| **AI Model** | OpenAI ChatGPT-4o |
+| **AI Model** | Groq API |
 | **OCR Engine** | Tesseract OCR via pytesseract |
 | **Image Processing** | Pillow (PIL) |
 | **HTTP Client** | requests |
@@ -74,12 +74,12 @@ x-reply-bot/
 ### Prerequisites
 - Python 3.9 or higher
 - Tesseract OCR engine
-- API keys for: Telegram Bot API, TwexAPI, OpenAI
+- API keys for: Telegram Bot API, TwitterAPI.io, Groq API
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/yourusername/x-reply-bot.git
-cd x-reply-bot
+git clone https://github.com/yourusername/ARC-Reply.git
+cd ARC-Reply
 ```
 
 ### Step 2: Install System Dependencies

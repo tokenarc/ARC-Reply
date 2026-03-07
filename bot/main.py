@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-X Reply Bot - Main entry point.
+ARC Reply - Main entry point.
 Telegram bot for generating customizable replies to X (Twitter) posts.
 """
 

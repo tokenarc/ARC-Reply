@@ -1,0 +1,34 @@
+{
+  "name": "arc-reply-workers",
+  "version": "1.0.0",
+  "description": "ARC Reply - Telegram bot for generating customizable X (Twitter) replies on Cloudflare Workers",
+  "main": "worker.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:prod": "wrangler deploy --env production",
+    "deploy:staging": "wrangler deploy --env staging",
+    "build": "echo 'Build complete'",
+    "secret:set": "wrangler secret put",
+    "secret:list": "wrangler secret list",
+    "logs": "wrangler tail"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "twitter",
+    "x",
+    "cloudflare",
+    "workers",
+    "arc-reply"
+  ],
+  "author": "ARC Reply Team",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^4.14.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.29.0"
+  }
+}

@@ -1,6 +1,6 @@
-# Contributing to X Reply Bot 🤝
+# Contributing to ARC Reply 🤚
 
-Thank you for your interest in contributing to X Reply Bot! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to ARC Reply! This document provides guidelines and instructions for contributing to the project.
 
 ## Code of Conduct
 
@@ -14,8 +14,8 @@ Thank you for your interest in contributing to X Reply Bot! This document provid
 ### 1. Fork the Repository
 ```bash
 # Click "Fork" on GitHub
-git clone https://github.com/your-username/x-reply-bot.git
-cd x-reply-bot
+git clone https://github.com/your-username/ARC-Reply.git
+cd ARC-Reply
 ```
 
 ### 2. Create a Feature Branch
@@ -117,8 +117,8 @@ Examples:
 bot/
 ├── main.py                 # Entry point
 ├── telegram_handler.py      # Telegram integration
-├── twex_client.py           # X API wrapper
-├── ai_generator.py          # ChatGPT-4o integration
+├── twitter_api_client.py    # TwitterAPI.io wrapper
+├── ai_generator.py          # Groq API integration
 ├── ocr_processor.py         # Tesseract OCR
 └── utils.py                 # Utilities
 
@@ -129,13 +129,13 @@ config/
 
 ## Key Components
 
-### TwexAPI Client (`bot/twex_client.py`)
+### TwitterAPI.io Client (`bot/twitter_api_client.py`)
 - Handles X API communication
 - Methods: `get_tweet()`, `post_reply()`, `post_tweet()`
-- Uses Bearer token authentication
+- Uses API key or Bearer token authentication
 
 ### AI Generator (`bot/ai_generator.py`)
-- Generates replies using ChatGPT-4o
+- Generates replies using Groq API
 - Supports multiple styles and languages
 - Returns list of reply options
 
@@ -244,4 +244,4 @@ Contributors will be:
 - Credited in release notes
 - Acknowledged in commit history
 
-Thank you for making X Reply Bot better! 🙏
+Thank you for making ARC Reply better! 🙏

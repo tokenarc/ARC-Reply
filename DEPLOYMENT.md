@@ -1,6 +1,6 @@
-# Deployment Guide 🚀
+# Deployment Guide
 
-This guide covers deploying X Reply Bot to various platforms.
+This guide covers deploying ARC Reply to various platforms.s.
 
 ## Local Deployment
 
@@ -12,8 +12,8 @@ This guide covers deploying X Reply Bot to various platforms.
 ### Quick Start
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/x-reply-bot.git
-cd x-reply-bot
+git clone https://github.com/yourusername/ARC-Reply.git
+cd ARC-Reply
 
 # Create virtual environment
 python -m venv venv

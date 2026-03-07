@@ -79,7 +79,7 @@ class TelegramBotHandler:
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         """Handle /start command."""
         user = get_user_mention(update)
-        welcome_message = f"""👋 Welcome to X Reply Bot, {user}!
+        welcome_message = f"""👋 Welcome to ARC Reply, {user}!
 
 I help you generate creative replies for Twitter/X posts. Here's what I can do:
 

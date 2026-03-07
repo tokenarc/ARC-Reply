@@ -1,5 +1,5 @@
 """
-Constants and enums for X Reply Bot.
+Constants and enums for ARC Reply.
 """
 
 from enum import Enum

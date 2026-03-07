@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to X Reply Bot will be documented in this file.
+All notable changes to ARC Reply will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,11 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-03-05
 
 ### Added
-- Initial release of X Reply Bot
+- Initial release of ARC Reply
 - Telegram Bot API integration with `/start`, `/reply`, `/help`, `/cancel` commands
-- TwexAPI integration for fetching tweets and posting replies
+- TwitterAPI.io integration for fetching tweets and posting replies
 - Tesseract OCR support for extracting text from tweet screenshots
-- OpenAI ChatGPT-4o integration for AI-powered reply generation
+- Groq API integration for AI-powered reply generation
 - 5 customizable reply styles:
   - GenZ (trendy, casual, emoji-heavy)
   - Professional (formal, business-appropriate)
@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - English, Urdu, Japanese, Spanish, French
   - German, Chinese, Hindi, Portuguese, Russian
 - Multiple input methods:
-  - Tweet links (automatic fetching via TwexAPI)
+  - Tweet links (automatic fetching via TwitterAPI.io)
   - Tweet screenshots (OCR text extraction)
   - Plain text input
 - Multiple reply generation (3 options per request)
@@ -40,9 +40,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Technical Details
 - Built with python-telegram-bot 21.0.1
-- Uses TwexAPI for X API integration
+- Uses TwitterAPI.io for X API integration
 - Tesseract OCR for image text extraction
-- OpenAI API for ChatGPT-4o integration
+- Groq API for intelligent reply generation
 - Pydantic for data validation
 - Python 3.9+ compatibility
 

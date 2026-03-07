@@ -1,5 +1,5 @@
 """
-Configuration settings for X Reply Bot.
+Configuration settings for ARC Reply.
 Loads environment variables and provides centralized configuration.
 """
 
