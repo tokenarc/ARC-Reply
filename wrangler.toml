@@ -8,37 +8,24 @@ name = "arc-reply-prod"
 routes = [
   { pattern = "arc-reply.yourdomain.com/*", zone_name = "yourdomain.com" }
 ]
+vars = { ENVIRONMENT = "production", LOG_LEVEL = "info" }
+analytics = { enabled = true }
 
 [env.staging]
 name = "arc-reply-staging"
 routes = [
   { pattern = "arc-reply-staging.yourdomain.com/*", zone_name = "yourdomain.com" }
 ]
-
-# Environment variables
-[env.production.vars]
-ENVIRONMENT = "production"
-LOG_LEVEL = "info"
-
-[env.staging.vars]
-ENVIRONMENT = "staging"
-LOG_LEVEL = "debug"
+vars = { ENVIRONMENT = "staging", LOG_LEVEL = "debug" }
+analytics = { enabled = true }
 
 # Secrets (set via wrangler secret put)
 # TELEGRAM_BOT_TOKEN
 # TWITTER_API_KEY
 # GROQ_API_KEY
 
-# Build configuration
-[build]
-command = "npm install && npm run build"
-
 # Observability
 [observability]
-enabled = true
-
-# Analytics
-[analytics]
 enabled = true
 
 # Limits
