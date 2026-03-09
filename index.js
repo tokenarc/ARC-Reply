@@ -40,7 +40,7 @@ async function generateGroqReply(userMessage, apiKey) {
     const response = await axios.post(
       url,
       {
-        model: 'llama3-8b-8192',
+        model: 'llama-3.3-70b-versatile',
         messages: [
           { role: 'system', content: 'You are ARC-Reply, a helpful assistant.' },
           { role: 'user', content: userMessage },

@@ -35,7 +35,7 @@ async function processUpdate(update, env) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'llama3-8b-8192',
+          model: 'llama-3.3-70b-versatile',
           messages: [
             { role: 'system', content: 'You are ARC-Reply, a helpful assistant.' },
             { role: 'user', content: userText },
@@ -144,7 +144,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            model: 'llama3-8b-8192',
+            model: 'llama-3.3-70b-versatile',
             messages: [
               { role: 'user', content: 'Say hello in one word' }
             ],
